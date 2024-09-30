@@ -1,5 +1,5 @@
-﻿
-#include "mylib.h"
+﻿#include "mylib.h"
+#include "studentas.h"
 
 int main() {
     int studentuSkaicius;
@@ -9,19 +9,29 @@ int main() {
     vector<Studentas> studentai(studentuSkaicius);
 
     for (int i = 0; i < studentuSkaicius; ++i) {
-        cin >> studentai[i];
+        cout << "Ar norite įvesti studento rezultatus rankiniu būdu? (1 - Taip, 0 - Generuoti): ";
+        bool rankinisIvedimas;
+        cin >> rankinisIvedimas;
 
-        bool pagalVidurki;
-        cout << "Skaičiuoti galutinį pagal vidurkį? (1 - taip, 0 - ne): ";
-        cin >> pagalVidurki;
+        if (rankinisIvedimas) {
+            cin >> studentai[i];
+        }
+        else {
+            int ndKiekis;
+            cout << "Įveskite namų darbų kiekį: ";
+            cin >> ndKiekis;
+            studentai[i].generuotiAtsitiktiniusRezultatus(ndKiekis);
+        }
 
-        studentai[i].skaiciuotiGalutiniBala(pagalVidurki);
+        studentai[i].skaiciuotiGalutiniBala();
     }
 
+    // Output header
     cout << endl << setw(15) << left << "Pavardė"
         << setw(15) << "Vardas"
-        << setw(10) << "Galutinis (Vid.)" << endl;
-    cout << "--------------------------------------------------" << endl;
+        << setw(10) << "Galutinis (Vid.)"
+        << setw(10) << "Galutinis (Med.)" << endl;
+    cout << "-----------------------------------------------------------" << endl;
 
     for (const auto& studentas : studentai) {
         cout << studentas << endl;
@@ -29,3 +39,4 @@ int main() {
 
     return 0;
 }
+

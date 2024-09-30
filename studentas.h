@@ -1,4 +1,3 @@
-
 #ifndef STUDENTAS_H
 #define STUDENTAS_H
 
@@ -10,7 +9,8 @@ private:
     string pavarde;
     vector<int> namuDarbai;
     int egzaminas;
-    double galutinisBalas;
+    double galutinisVidurkis;
+    double galutinisMediana;
 
 public:
    
@@ -26,8 +26,11 @@ public:
 
     friend ostream& operator<<(ostream& out, const Studentas& s);
 
-    void skaiciuotiGalutiniBala(bool pagalVidurki);
+    void skaiciuotiGalutiniBala();
+
+    void generuotiAtsitiktiniusRezultatus(int ndKiekis);
 };
 
 #endif // STUDENTAS_H
+
 
