@@ -1,5 +1,8 @@
+.vs/
 # Prerequisites
 *.d
+*.dbmld
+*.jfm
 
 # Compiled Object files
 *.slo
