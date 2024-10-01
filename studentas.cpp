@@ -1,12 +1,17 @@
 ﻿#include "studentas.h"
-#include <random>
+#include "mylib.h"
 
 
-Studentas::Studentas() : vardas(""), pavarde(""), egzaminas(0), galutinisVidurkis(0.0), galutinisMediana(0.0) {}
+Studentas::Studentas() : vardas(""), pavarde(""), egzaminas(0), galutinisVidurkis(0), galutinisMediana(0) {}
 
-Studentas::Studentas(const Studentas& other)
-    : vardas(other.vardas), pavarde(other.pavarde), namuDarbai(other.namuDarbai), egzaminas(other.egzaminas),
-    galutinisVidurkis(other.galutinisVidurkis), galutinisMediana(other.galutinisMediana) {}
+Studentas::Studentas(const Studentas& other) {
+    vardas = other.vardas;
+    pavarde = other.pavarde;
+    namuDarbai = other.namuDarbai;
+    egzaminas = other.egzaminas;
+    galutinisVidurkis = other.galutinisVidurkis;
+    galutinisMediana = other.galutinisMediana;
+}
 
 Studentas& Studentas::operator=(const Studentas& other) {
     if (this != &other) {
@@ -20,60 +25,88 @@ Studentas& Studentas::operator=(const Studentas& other) {
     return *this;
 }
 
-Studentas::~Studentas() {}
+Studentas::~Studentas() {
+   
+}
+
+
+void Studentas::skaiciuotiGalutiniBala() {
+  
+    double suma = accumulate(namuDarbai.begin(), namuDarbai.end(), 0.0);
+    double vidurkis = suma / namuDarbai.size();
+    galutinisVidurkis = 0.4 * vidurkis + 0.6 * egzaminas;
+
+
+    sort(namuDarbai.begin(), namuDarbai.end());
+    if (namuDarbai.size() % 2 == 0) {
+        galutinisMediana = 0.4 * ((namuDarbai[namuDarbai.size() / 2 - 1] + namuDarbai[namuDarbai.size() / 2]) / 2.0) + 0.6 * egzaminas;
+    }
+    else {
+        galutinisMediana = 0.4 * namuDarbai[namuDarbai.size() / 2] + 0.6 * egzaminas;
+    }
+}
+
 
 istream& operator>>(istream& in, Studentas& s) {
-    cout << "Įveskite studento vardą: ";
-    in >> s.vardas;
-    cout << "Įveskite studento pavardę: ";
-    in >> s.pavarde;
+    in >> s.vardas >> s.pavarde;
 
+    s.namuDarbai.clear();
     int nd;
-    cout << "Įveskite namų darbų rezultatus (įveskite -1, kad baigtumėte): ";
-    while (in >> nd && nd != -1) {
-        s.namuDarbai.push_back(nd);
+    for (int i = 0; i < 5; ++i) {
+        if (in >> nd) {
+            s.namuDarbai.push_back(nd);
+        }
     }
-
-    cout << "Įveskite egzamino rezultatą: ";
     in >> s.egzaminas;
 
+    s.skaiciuotiGalutiniBala();
     return in;
 }
 
 ostream& operator<<(ostream& out, const Studentas& s) {
     out << setw(15) << left << s.pavarde
         << setw(15) << s.vardas
-        << setw(10) << fixed << setprecision(2) << s.galutinisVidurkis
-        << setw(10) << s.galutinisMediana;
+        << setw(20) << fixed << setprecision(2) << s.galutinisVidurkis
+        << setw(20) << fixed << setprecision(2) << s.galutinisMediana;
     return out;
 }
-void Studentas::skaiciuotiGalutiniBala() {
-    double namuDarbaiVidurkis = accumulate(namuDarbai.begin(), namuDarbai.end(), 0.0) / namuDarbai.size();
 
-    sort(namuDarbai.begin(), namuDarbai.end());
-    double namuDarbaiMediana;
-    if (namuDarbai.size() % 2 == 0) {
-        namuDarbaiMediana = (namuDarbai[namuDarbai.size() / 2 - 1] + namuDarbai[namuDarbai.size() / 2]) / 2.0;
-    }
-    else {
-        namuDarbaiMediana = namuDarbai[namuDarbai.size() / 2];
+
+vector<Studentas> Studentas::nuskaitytiIsFailo(const string& failoPavadinimas) {
+    vector<Studentas> studentai;
+    ifstream inFile(failoPavadinimas);
+
+    if (!inFile) {
+        throw runtime_error("Nepavyko atidaryti failo: " + failoPavadinimas);
     }
 
-    galutinisVidurkis = 0.4 * namuDarbaiVidurkis + 0.6 * egzaminas;
-    galutinisMediana = 0.4 * namuDarbaiMediana + 0.6 * egzaminas;
+    string eilute;
+    std::getline(inFile, eilute); 
+
+    while (std::getline(inFile, eilute)) {
+        istringstream iss(eilute);
+        Studentas s;
+        iss >> s.vardas >> s.pavarde;
+
+        int nd;
+        while (iss >> nd && s.namuDarbai.size() < 5) { 
+            s.namuDarbai.push_back(nd);
+        }
+        iss >> s.egzaminas;
+
+       
+        s.skaiciuotiGalutiniBala();
+
+        studentai.push_back(s);
+    }
+
+    return studentai;
 }
 
 
-void Studentas::generuotiAtsitiktiniusRezultatus(int ndKiekis) {
-    std::random_device rd;  
-    std::mt19937 gen(rd()); 
-    std::uniform_int_distribution<> distrib(1, 10); 
-
-    namuDarbai.clear(); 
-    for (int i = 0; i < ndKiekis; ++i) {
-        namuDarbai.push_back(distrib(gen)); 
-    }
-
-    egzaminas = distrib(gen);
+void Studentas::rusiuotiStudentus(vector<Studentas>& studentai) {
+    sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
+        return a.pavarde < b.pavarde || (a.pavarde == b.pavarde && a.vardas < b.vardas);
+        });
 }
 

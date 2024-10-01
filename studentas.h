@@ -22,15 +22,20 @@ public:
 
     ~Studentas();
 
+  
     friend istream& operator>>(istream& in, Studentas& s);
 
+    
     friend ostream& operator<<(ostream& out, const Studentas& s);
 
+    
     void skaiciuotiGalutiniBala();
 
-    void generuotiAtsitiktiniusRezultatus(int ndKiekis);
+    
+    static vector<Studentas> nuskaitytiIsFailo(const string& failoPavadinimas);
+
+    
+    static void rusiuotiStudentus(vector<Studentas>& studentai);
 };
 
 #endif // STUDENTAS_H
-
-
