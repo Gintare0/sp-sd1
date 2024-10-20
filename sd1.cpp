@@ -23,7 +23,7 @@ void nuskaitytiStudentus(const string& failoPavadinimas, Container& studentai) {
 }
 
 template<typename Container>
-void kategorizuotiStudentus(Container& studentai, Container& vargsai, Container& kietiakiai) {
+void pirmaStrategija(Container& studentai, Container& vargsai, Container& kietiakiai) {
     for (auto& s : studentai) {
         s.skaiciuotiGalutiniBala();
         if (s.getGalutinis() < 5.0) {
@@ -31,6 +31,21 @@ void kategorizuotiStudentus(Container& studentai, Container& vargsai, Container&
         }
         else {
             kietiakiai.push_back(s);
+        }
+    }
+}
+
+template<typename Container>
+void antraStrategija(Container& studentai, Container& vargsai) {
+    auto it = studentai.begin();
+    while (it != studentai.end()) {
+        it->skaiciuotiGalutiniBala();
+        if (it->getGalutinis() < 5.0) {
+            vargsai.push_back(*it);
+            it = studentai.erase(it);
+        }
+        else {
+            ++it;
         }
     }
 }
@@ -56,69 +71,41 @@ int main() {
 
     for (const auto& failas : failai) {
         {
-            cout << "Testavimas su vector failu: " << failas << endl;
+            cout << "Pirma strategija su vector failu: " << failas << endl;
 
             vector<Studentas> studentai, vargsai, kietiakiai;
 
             auto pradzia = high_resolution_clock::now();
             nuskaitytiStudentus(failas, studentai);
             auto pabaiga = high_resolution_clock::now();
-            cout << "Duomenu nuskaitymo laikas (vector): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
+            cout << "Duomenu nuskaitymo laikas: " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
 
             pradzia = high_resolution_clock::now();
-            kategorizuotiStudentus(studentai, vargsai, kietiakiai);
+            pirmaStrategija(studentai, vargsai, kietiakiai);
             pabaiga = high_resolution_clock::now();
-            cout << "Kategorizavimo laikas (vector): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
+            cout << "Kategorizavimo laikas (pirma strategija): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
 
-            pradzia = high_resolution_clock::now();
-            issaugotiStudentusIFaila("vargsai_vector_" + failas, vargsai);
-            issaugotiStudentusIFaila("kietiakiai_vector_" + failas, kietiakiai);
-            pabaiga = high_resolution_clock::now();
-            cout << "Failu issaugojimo laikas (vector): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
+            issaugotiStudentusIFaila("vargsai_vector_pirma_" + failas, vargsai);
+            issaugotiStudentusIFaila("kietiakiai_vector_pirma_" + failas, kietiakiai);
         }
 
         {
-            cout << "\nTestavimas su list failu: " << failas << endl;
+            cout << "\nAntra strategija su vector failu: " << failas << endl;
 
-            list<Studentas> studentai, vargsai, kietiakiai;
+            vector<Studentas> studentai, vargsai;
 
             auto pradzia = high_resolution_clock::now();
             nuskaitytiStudentus(failas, studentai);
             auto pabaiga = high_resolution_clock::now();
-            cout << "Duomenu nuskaitymo laikas (list): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
+            cout << "Duomenu nuskaitymo laikas: " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
 
             pradzia = high_resolution_clock::now();
-            kategorizuotiStudentus(studentai, vargsai, kietiakiai);
+            antraStrategija(studentai, vargsai);
             pabaiga = high_resolution_clock::now();
-            cout << "Kategorizavimo laikas (list): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
+            cout << "Kategorizavimo laikas (antra strategija): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
 
-            pradzia = high_resolution_clock::now();
-            issaugotiStudentusIFaila("vargsai_list_" + failas, vargsai);
-            issaugotiStudentusIFaila("kietiakiai_list_" + failas, kietiakiai);
-            pabaiga = high_resolution_clock::now();
-            cout << "Failu issaugojimo laikas (list): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
-        }
-
-        {
-            cout << "\nTestavimas su deque failu: " << failas << endl;
-
-            deque<Studentas> studentai, vargsai, kietiakiai;
-
-            auto pradzia = high_resolution_clock::now();
-            nuskaitytiStudentus(failas, studentai);
-            auto pabaiga = high_resolution_clock::now();
-            cout << "Duomenu nuskaitymo laikas (deque): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
-
-            pradzia = high_resolution_clock::now();
-            kategorizuotiStudentus(studentai, vargsai, kietiakiai);
-            pabaiga = high_resolution_clock::now();
-            cout << "Kategorizavimo laikas (deque): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
-
-            pradzia = high_resolution_clock::now();
-            issaugotiStudentusIFaila("vargsai_deque_" + failas, vargsai);
-            issaugotiStudentusIFaila("kietiakiai_deque_" + failas, kietiakiai);
-            pabaiga = high_resolution_clock::now();
-            cout << "Failu issaugojimo laikas (deque): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
+            issaugotiStudentusIFaila("vargsai_vector_antra_" + failas, vargsai);
+            issaugotiStudentusIFaila("kietiakiai_vector_antra_" + failas, studentai);
         }
 
         cout << "----------------------------------------------\n" << endl;
