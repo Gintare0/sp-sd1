@@ -70,13 +70,10 @@ Nueikite į projekto katalogą -> cd jusu-repozitorija
 Sukompiliuokite projektą naudodami make -> make
 
 Kryžminė Platforma (naudojant CMake):
-Sukurkite katalogą build ir nueikite į jį:
-mkdir build
-cd build
-
-Paleiskite CMake ir sukompiliuokite:
-cmake ..
-make
+Sukurkite katalogą build -> mkdir build
+Nueikite į jį -> cd build
+Paleiskite CMake -> cmake ..
+Sukompiliuokite -> make
 
 Naudojimo Instrukcijos
 Paleiskite programą -> ./StudentSort
