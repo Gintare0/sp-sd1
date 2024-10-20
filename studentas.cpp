@@ -1,6 +1,4 @@
 ﻿#include "studentas.h"
-#include "mylib.h"
-
 
 Studentas::Studentas() : vardas(""), pavarde(""), egzaminas(0), galutinisVidurkis(0), galutinisMediana(0) {}
 
@@ -25,17 +23,12 @@ Studentas& Studentas::operator=(const Studentas& other) {
     return *this;
 }
 
-Studentas::~Studentas() {
-   
-}
-
+Studentas::~Studentas() {}
 
 void Studentas::skaiciuotiGalutiniBala() {
-  
     double suma = accumulate(namuDarbai.begin(), namuDarbai.end(), 0.0);
     double vidurkis = suma / namuDarbai.size();
     galutinisVidurkis = 0.4 * vidurkis + 0.6 * egzaminas;
-
 
     sort(namuDarbai.begin(), namuDarbai.end());
     if (namuDarbai.size() % 2 == 0) {
@@ -46,10 +39,8 @@ void Studentas::skaiciuotiGalutiniBala() {
     }
 }
 
-
 istream& operator>>(istream& in, Studentas& s) {
     in >> s.vardas >> s.pavarde;
-
     s.namuDarbai.clear();
     int nd;
     for (int i = 0; i < 5; ++i) {
@@ -58,7 +49,6 @@ istream& operator>>(istream& in, Studentas& s) {
         }
     }
     in >> s.egzaminas;
-
     s.skaiciuotiGalutiniBala();
     return in;
 }
@@ -71,42 +61,27 @@ ostream& operator<<(ostream& out, const Studentas& s) {
     return out;
 }
 
-
 vector<Studentas> Studentas::nuskaitytiIsFailo(const string& failoPavadinimas) {
     vector<Studentas> studentai;
     ifstream inFile(failoPavadinimas);
-
     if (!inFile) {
-        throw runtime_error("Nepavyko atidaryti failo: " + failoPavadinimas);
+        throw runtime_error("Failas neegzistuoja: " + failoPavadinimas);
     }
 
-    string eilute;
-    std::getline(inFile, eilute); 
+    string line;
+    getline(inFile, line);
 
-    while (std::getline(inFile, eilute)) {
-        istringstream iss(eilute);
+    while (getline(inFile, line)) {
+        istringstream iss(line);
         Studentas s;
-        iss >> s.vardas >> s.pavarde;
-
-        int nd;
-        while (iss >> nd && s.namuDarbai.size() < 5) { 
-            s.namuDarbai.push_back(nd);
-        }
-        iss >> s.egzaminas;
-
-       
-        s.skaiciuotiGalutiniBala();
-
+        iss >> s;
         studentai.push_back(s);
     }
-
     return studentai;
 }
-
 
 void Studentas::rusiuotiStudentus(vector<Studentas>& studentai) {
     sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
         return a.pavarde < b.pavarde || (a.pavarde == b.pavarde && a.vardas < b.vardas);
         });
 }
-

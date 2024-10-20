@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\",
+  "WorkspaceRootPath": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\sd1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|solutionrelative:sd1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\studentas.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\studentas.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|solutionrelative:studentas.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\studentas.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\sd1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|solutionrelative:sd1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\studentas.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|solutionrelative:studentas.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\mylib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30ECD19D-6B99-413B-9178-17175A0A8AC0}|sp-sd1.vcxproj|solutionrelative:mylib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,50 +26,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "sd1.cpp",
-              "DocumentMoniker": "C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\sd1.cpp",
-              "RelativeDocumentMoniker": "sd1.cpp",
-              "ToolTip": "C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\sd1.cpp",
-              "RelativeToolTip": "sd1.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-30T10:23:55.182Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "studentas.cpp",
-              "DocumentMoniker": "C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\studentas.cpp",
-              "RelativeDocumentMoniker": "studentas.cpp",
-              "ToolTip": "C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\studentas.cpp",
-              "RelativeToolTip": "studentas.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "sd1.cpp",
+              "DocumentMoniker": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\sd1.cpp",
+              "RelativeDocumentMoniker": "sd1.cpp",
+              "ToolTip": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\sd1.cpp",
+              "RelativeToolTip": "sd1.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-30T10:23:52.743Z",
+              "WhenOpened": "2024-10-20T13:58:00.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "studentas.cpp",
+              "DocumentMoniker": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\studentas.cpp",
+              "RelativeDocumentMoniker": "studentas.cpp",
+              "ToolTip": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\studentas.cpp",
+              "RelativeToolTip": "studentas.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-20T13:56:22.461Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "studentas.h",
-              "DocumentMoniker": "C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\studentas.h",
+              "DocumentMoniker": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\studentas.h",
               "RelativeDocumentMoniker": "studentas.h",
-              "ToolTip": "C:\\Users\\GintareDobilaite\\source\\repos\\sp-sd1\\studentas.h",
+              "ToolTip": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\studentas.h",
               "RelativeToolTip": "studentas.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T10:23:50.354Z",
+              "WhenOpened": "2024-10-20T13:56:03.116Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "mylib.h",
+              "DocumentMoniker": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\mylib.h",
+              "RelativeDocumentMoniker": "mylib.h",
+              "ToolTip": "C:\\Users\\GintareDobilaite\\source\\repos\\Gintare0\\sp-sd1\\mylib.h",
+              "RelativeToolTip": "mylib.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-20T13:53:32.899Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -10,13 +10,15 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
-
+#include <random>
+#include <chrono>
 
 using std::vector;
 using std::string;
 using std::istream;
 using std::ostream;
 using std::ifstream;
+using std::ofstream;
 using std::istringstream;
 using std::setw;
 using std::left;
