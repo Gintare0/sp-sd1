@@ -51,6 +51,16 @@ void antraStrategija(Container& studentai, Container& vargsai) {
 }
 
 template<typename Container>
+void treciaStrategija(Container& studentai, Container& vargsai) {
+    auto partitionPoint = stable_partition(studentai.begin(), studentai.end(), [](const Studentas& s) {
+        return s.getGalutinis() < 5.0;
+        });
+
+    vargsai.insert(vargsai.end(), studentai.begin(), partitionPoint);
+    studentai.erase(studentai.begin(), partitionPoint);
+}
+
+template<typename Container>
 void issaugotiStudentusIFaila(const string& failoPavadinimas, const Container& studentai) {
     ofstream isvestiesFailas(failoPavadinimas);
     if (!isvestiesFailas) {
@@ -106,6 +116,25 @@ int main() {
 
             issaugotiStudentusIFaila("vargsai_vector_antra_" + failas, vargsai);
             issaugotiStudentusIFaila("kietiakiai_vector_antra_" + failas, studentai);
+        }
+
+        {
+            cout << "\nTrečia strategija su vector failu: " << failas << endl;
+
+            vector<Studentas> studentai, vargsai;
+
+            auto pradzia = high_resolution_clock::now();
+            nuskaitytiStudentus(failas, studentai);
+            auto pabaiga = high_resolution_clock::now();
+            cout << "Duomenu nuskaitymo laikas: " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
+
+            pradzia = high_resolution_clock::now();
+            treciaStrategija(studentai, vargsai);
+            pabaiga = high_resolution_clock::now();
+            cout << "Kategorizavimo laikas (trečia strategija): " << duration_cast<milliseconds>(pabaiga - pradzia).count() << " ms" << endl;
+
+            issaugotiStudentusIFaila("vargsai_vector_trecia_" + failas, vargsai);
+            issaugotiStudentusIFaila("kietiakiai_vector_trecia_" + failas, studentai);
         }
 
         cout << "----------------------------------------------\n" << endl;
