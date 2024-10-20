@@ -62,15 +62,12 @@ Reikalavimai: C++ Kompiliatorius, palaikantis C++17 (pvz., g++, clang++). CMake 
 Projekto Kompiliavimas
 
 Unix Sistemos (naudojant Makefile):
-Klonuokite repozitoriją -> git clone https://github.com/Gintare0/jusu-repozitorija.git
-Nueikite į projekto katalogą -> cd jusu-repozitorija
-Sukompiliuokite projektą naudodami make -> make
+
+Klonuokite repozitoriją -> git clone https://github.com/Gintare0/jusu-repozitorija.git | Nueikite į projekto katalogą -> cd jusu-repozitorija | Sukompiliuokite projektą naudodami make -> make |
 
 Kryžminė Platforma (naudojant CMake):
-Sukurkite katalogą build -> mkdir build
-Nueikite į jį -> cd build
-Paleiskite CMake -> cmake ..
-Sukompiliuokite -> make
+
+Sukurkite katalogą build -> mkdir build | Nueikite į jį -> cd build | Paleiskite CMake -> cmake .. | Sukompiliuokite -> make |
 
 Naudojimo Instrukcijos
 
@@ -83,13 +80,14 @@ Didelių Testinių Duomenų Generavimas: Galite sugeneruoti savo įvesties failu
 Ši komanda sukurs failą su 100 000 studentų įrašų, skirtą testavimui.
 
 Repozitorijos Struktūra
+
 Šaltinio Failai: sd1.cpp, studentas.cpp, studentas.h, mylib.h.
 Kompiliavimo Failai: Makefile arba CMakeLists.txt kompiliavimui. Arba sp-sd1.sln ir sp-sd1.vcxproj (skirta Visual Studio vartotojams).
 Dokumentacija: README.md (projekto apžvalga, įdiegimas, naudojimas). LICENSE (projekto licencija).
 Pavyzdiniai Duomenys: studentai_1000.txt, studentai_10000.txt, studentai_100000.txt, studentai_1000000.txt, studentai_10000000.txt (pavyzdiniai įvesties failai).
 
 Sekantys Žingsniai
-Klonuokite Repozitoriją: Pradėkite klonuodami projektą.
-Kompiliuokite ir Testuokite: Sekite instrukcijas, kad sukompiliuotumėte ir paleistumėte programą.
-Prisidėkite Prie Projekto: Galite prisidėti prie projekto, jei turite idėjų, kaip jį patobulinti.
+Klonuokite Repozitoriją: pradėkite klonuodami projektą.
+Kompiliuokite ir Testuokite: sekite instrukcijas, kad sukompiliuotumėte ir paleistumėte programą.
+Prisidėkite Prie Projekto: galite prisidėti prie projekto, jei turite idėjų, kaip jį patobulinti.
 
