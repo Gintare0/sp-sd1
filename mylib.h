@@ -12,6 +12,9 @@
 #include <stdexcept>
 #include <random>
 #include <chrono>
+#include <list>
+#include <deque>
+
 
 using std::vector;
 using std::string;
